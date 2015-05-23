@@ -1,0 +1,49 @@
+
+<div class="row">
+    <form class="form-group">
+        <div class="col-lg-4">
+            <input type="text" placeholder="Make" class="form-control" ng-model="newCar.make"/>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" placeholder="Model" class="form-control" ng-model="newCar.model"/>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" placeholder="Color" class="form-control" ng-model="newCar.color"/>
+        </div>
+        <div class="col-lg-4">
+            <input type="text" placeholder="year" class="form-control" ng-model="newCar.year"/>
+        </div>
+        <div class="col-lg-6">
+            <label>Public</label>
+            <input type="checkbox" ng-model="newCar.public">
+            <button class="btn btn-default" ng-click="newCar.owner=$root.currentUser._id; cars.push(newCar)">Add Car</button>
+        </div>
+    </form>
+</div>
+
+<article class="row">
+    <h1>Fav Cars</h1>
+    <div class="col-lg-12">
+        <div class="col-lg-6">
+            <input type="search" ng-model="search" class="form-control" placeholder="Search">
+        </div>
+        <select ng-model="orderProperty">
+            <option value="1">Ascending</option>
+            <option value="-1">Descending</option>
+        </select>
+    </div>
+    <ul id="cars-listed" class="col-lg-12">
+        <li dir-paginate="car in cars | itemsPerPage: perPage" total-items="carsCount.count">
+            <img src="car.png" alt="favorite cars"/> |
+            {{car.make}} |
+            {{car.model}} |
+            {{car.color}} |
+            {{car.year}} |
+            <a class="btn btn-default" href="/cars/{{car._id}}">
+                View Car Details
+            </a>
+            <button class="btn btn-default" ng-click="remove(car)">X</button>
+        </li>
+    </ul>
+    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+</article>

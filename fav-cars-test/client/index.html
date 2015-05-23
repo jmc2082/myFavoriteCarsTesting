@@ -1,0 +1,27 @@
+<head>
+    <title>favorite-car</title>
+    <base href="/">
+    <meta name="description" content="Cars I've owned or plan to own someday.">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="shortcut icon" type="image/png" href="car.png" sizes="16x16 32x32 64x64">
+</head>
+
+<body>
+  <div ng-app="favcars">
+      <nav class="navbar navbar-default">
+          <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/cars">Cars</a></li>
+              <li><a href="/wheels">Wheels</a></li>
+              <li><a href="/junkpile">Junk Pile</a></li>
+              <li><a href="/contactme">Contact Me</a></li>
+              <li><a href="/manageusers">Manage Users</a></li>
+              <li>
+                  <meteor-include src="loginButtons"></meteor-include>
+              </li>
+          </ul>
+      </nav>
+      <div class="container" ui-view></div>
+  </div>
+
+</body>
